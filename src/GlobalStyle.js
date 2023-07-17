@@ -1,11 +1,14 @@
-import styled,{ createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
+html{
+    font-family: 'Manrope', sans-serif;
+}
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Manrope', sans-serif; 
+     
 }
 #root{
     display: flex;
@@ -15,7 +18,9 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const AppContainer = styled.div`
-width: 600px;
-height: 100vh;
+    width: 600px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 
 `
