@@ -1,9 +1,7 @@
 import React from 'react'
-import pic1 from '../../assets/pic1.jpg'
-import pic2 from '../../assets/pic2.jpg'
-import cami from '../../assets/cami.png'
-import teli from '../../assets/teli.png'
-import doti from '../../assets/doti.png'
+import camera from '../../assets/camera.png'
+import cellphone from '../../assets/cellphone.png'
+import dots from '../../assets/dots.png'
 import { HeaderContainer, Select, Status } from './HeaderStyle'
 
 
@@ -30,13 +28,13 @@ export const Header = (props) => {
             </div>
             <div className="action-menu">
                 <button>
-                    <img src={cami} alt='cam icon' />
+                    <img src={camera} alt='cam icon' />
                 </button>
                 <button>
-                    <img src={teli} alt='telephone icon' />
+                    <img src={cellphone} alt='telephone icon' />
                 </button>
                 <button>
-                    <img src={doti} alt='dots icon' />
+                    <img src={dots} alt='dots icon' />
                 </button>
             </div>
         </HeaderContainer>
