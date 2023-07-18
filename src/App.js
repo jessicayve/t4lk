@@ -3,6 +3,7 @@ import { Header } from "./components/Header/Header"
 import { AppContainer } from "./GlobalStyle"
 import { Main } from "./components/Main/Main"
 import { initialMessages } from "./assets/initialMessages"
+import { Footer } from "./components/Footer/Footer"
 
 function App() {
   const [currSender, setCurrSender] = useState("Me")
@@ -35,6 +36,28 @@ function App() {
     }
   }
 
+  const sendText = (e, text, cbCleartText) => {
+    if (e.key === "Enter") {
+      const newMessage = {
+        id: `${currSender}-${Math.ceil(Math.random() * 1000000)}`,
+        sender: currSender,
+        content: text,
+        createdAt: new Date().toLocaleTimeString(
+          "en-us",
+          {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true
+          }
+        )
+      }
+      const newMessages = [...messages, newMessage]
+      setMessages(newMessages)
+      cbCleartText()
+    }
+
+  }
+
   return (
     <AppContainer>
       <Header
@@ -42,7 +65,16 @@ function App() {
         currSender={currSender}
         onChangeSender={onChangeSender}
       />
-      <Main messages={messages} deleteMessage={deleteMessage} />
+
+      <Main 
+      messages={messages} 
+      deleteMessage={deleteMessage} 
+      />
+
+      <Footer
+        sendText={sendText}
+
+      />
     </AppContainer>
 
 

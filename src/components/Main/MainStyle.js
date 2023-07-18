@@ -25,10 +25,10 @@ export const ChatBalloon = styled.div`
      background-color: ${(props)=> props.sender === "Me" ? "#61C554": "#EBECEF"} ;
     h1{
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
     }
     p{
-        font-weight: 400;
+        
         font-size: 16px;
         margin-top: 4px;
         overflow-wrap: break-word;
