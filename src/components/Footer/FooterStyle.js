@@ -1,57 +1,77 @@
-import styled from "styled-components";
-
+import styled from "styled-components"
 
 export const FooterContainer = styled.footer`
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 16px;
-background-color: #f1f4f7;
->div{
-    width: 490px;
-    height: 50px;
-    background-color: white;
-    border-radius: 35px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    box-shadow: 1px 1px 3px 0px rgba(204,204,204,1);
-    input{
-        border: none;
-        margin: 8px;
-        height: 28px;
-        padding: 0 4px;
-        width: 100%;
-        color: #78787c;
-    }
-}
-button{
-    border: none;
-    background-color: white;
-    :hover{
-        cursor: pointer;
-        filter: brightness(0.95);
-    }
-    :active{
-        filter: brightness(0.85);
-    }
-}
-.emoji, .paperclip{
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-}
-.paperclip{
-    margin-left: auto;
-}
-.microphone{
-    width: 50px;
-    height: 50px;
-    background-color: #61C554;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  padding: 18px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  gap: 12px;
+  align-items: center;
 
+  .input-area {
+    flex: 1;
+    height: 58px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+
+    input {
+      flex: 1;
+      height: 100%;
+      border: none;
+      background: transparent;
+      outline: none;
+      color: #e2e8f0;
+      margin: 0 10px;
+
+      &::placeholder {
+        color: #64748b;
+      }
+    }
+  }
+
+  button {
+    border: none;
+  }
+
+  .emoji,
+  .paperclip {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  @media (max-width: 560px) {
+    padding: 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+`
+
+export const SendButton = styled.button`
+  min-width: 110px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #6366f1, #22c55e);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(34, 197, 94, 0.18);
+  transition: 0.2s;
+
+  &:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 560px) {
+    width: 100%;
+  }
 `

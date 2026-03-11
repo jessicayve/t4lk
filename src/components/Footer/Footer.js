@@ -1,45 +1,51 @@
-import React, { useState } from 'react'
-import { FooterContainer } from './FooterStyle'
-import emoji from '../../assets/emoji.png'
-import paperclip from '../../assets/paperclip.png'
-import microphone from '../../assets/microphone.png'
+import React, { useState } from "react"
+import { FooterContainer, SendButton } from "./FooterStyle"
+import emoji from "../../assets/emoji.png"
+import paperclip from "../../assets/paperclip.png"
 
-export const Footer = (props) => {
-    const {sendText} = props
+export const Footer = ({ sendText }) => {
+  const [text, setText] = useState("")
 
-    const [text, setText] = useState("")
+  const handleSend = () => {
+    const didSend = sendText(text)
 
-    const changeText = (e) =>{
-        setText(e.target.value)
+    if (didSend) {
+      setText("")
     }
-    
-    const clearText = () =>{
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const didSend = sendText(text)
+
+      if (didSend) {
         setText("")
+      }
     }
-   
+  }
+
   return (
     <FooterContainer>
-        <div>
-            <button className='emoji'>
-                <img src={emoji} alt='emoji icon'/>
-            </button>
-
-            <input 
-            value={text}
-            onChange={changeText}
-            placeholder='Type a message'
-            onKeyDown={(e)=>sendText(e,text, clearText)}
-            />
-
-            <button className='paperclip'>
-                <img src={paperclip} alt='paperclipe icon'/>
-            </button>
-            
-        </div>
-        <button className='microphone'>
-            <img src={microphone} alt='microphone icon'/>
+      <div className="input-area">
+        <button type="button" className="emoji">
+          <img src={emoji} alt="Emoji icon" />
         </button>
-        
+
+        <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Write a message..."
+          onKeyDown={handleKeyDown}
+        />
+
+        <button type="button" className="paperclip">
+          <img src={paperclip} alt="Attachment icon" />
+        </button>
+      </div>
+
+      <SendButton type="button" onClick={handleSend}>
+        Send
+      </SendButton>
     </FooterContainer>
   )
 }

@@ -1,34 +1,49 @@
-import React from 'react'
-import { MainContainer, ChatBalloon } from './MainStyle'
-import doubletick from '../../assets/doubletick.png'
-import doubletickwhite from '../../assets/doubletickwhite.png'
+import React from "react"
+import {
+  MainContainer,
+  ChatBalloon,
+  MessageWrapper,
+  DateDivider,
+  EmptyState
+} from "./MainStyle"
+import doubletick from "../../assets/doubletick.png"
+import doubletickwhite from "../../assets/doubletickwhite.png"
 
-export const Main = (props) => {
+export const Main = ({ messages, deleteMessage }) => {
+  return (
+    <MainContainer>
+      <DateDivider>Today</DateDivider>
 
-    const {messages, deleteMessage} = props
+      {messages.length === 0 && (
+        <EmptyState>
+          <h3>No messages yet</h3>
+          <p>Start the conversation and send the first message.</p>
+        </EmptyState>
+      )}
 
-    
-    return (
-        <MainContainer>
-            {messages.map((message) => (
-                <div>
-                    <ChatBalloon 
-                    sender={message.sender}
-                    onDoubleClick={() => deleteMessage(message.id)}
-                    >
-                        {message.sender !== "Me" && <h1>{message.sender}</h1>}
-                        <p>{message.content}</p>
-                        <div>
-                            <span>{message.createdAt}</span>
-                         {
-                            message.sender === "Me" ? <img src={doubletickwhite} alt = "view status icon"/> 
-                            :
-                            <img src={doubletick} alt= "view status icon"/>
-                         }
-                        </div>
-                    </ChatBalloon>
-                </div>
-            ))}
-        </MainContainer>
-    )
+      {messages.map((message) => (
+        <MessageWrapper key={message.id} sender={message.sender}>
+          <ChatBalloon
+            sender={message.sender}
+            onDoubleClick={() => deleteMessage(message.id)}
+            title="Double click to delete"
+          >
+            {message.sender !== "Me" && <h1>{message.sender}</h1>}
+
+            <p>{message.content}</p>
+
+            <div>
+              <span>{message.createdAt}</span>
+
+              {message.sender === "Me" ? (
+                <img src={doubletickwhite} alt="Seen status icon" />
+              ) : (
+                <img src={doubletick} alt="Seen status icon" />
+              )}
+            </div>
+          </ChatBalloon>
+        </MessageWrapper>
+      ))}
+    </MainContainer>
+  )
 }
