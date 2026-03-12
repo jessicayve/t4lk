@@ -5,6 +5,12 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  min-width: 0;
+
+  @media (max-width: 640px) {
+    gap: 18px;
+  }
 `
 
 export const HeroSection = styled.section`
@@ -23,6 +29,12 @@ export const HeroSection = styled.section`
 
   @media (max-width: 720px) {
     padding: 22px;
+    border-radius: 24px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 18px;
+    border-radius: 22px;
   }
 `
 
@@ -35,23 +47,30 @@ export const HeroContent = styled.div`
   @media (max-width: 1040px) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 640px) {
+    gap: 18px;
+  }
 `
 
 export const HeroLeft = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 `
 
 export const HeroRight = styled.div`
   display: flex;
   align-items: stretch;
+  min-width: 0;
 `
 
 export const HeroEyebrow = styled.span`
   display: inline-flex;
   align-items: center;
   width: fit-content;
+  max-width: 100%;
   padding: 8px 12px;
   border-radius: 999px;
   margin-bottom: 16px;
@@ -62,6 +81,11 @@ export const HeroEyebrow = styled.span`
   text-transform: uppercase;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 480px) {
+    margin-bottom: 14px;
+    font-size: 11px;
+  }
 `
 
 export const HeroTitle = styled.h1`
@@ -75,6 +99,12 @@ export const HeroTitle = styled.h1`
   @media (max-width: 720px) {
     font-size: 30px;
   }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 1.16;
+    margin-bottom: 12px;
+  }
 `
 
 export const HeroText = styled.p`
@@ -82,6 +112,11 @@ export const HeroText = styled.p`
   color: #cbd5e1;
   font-size: 15px;
   line-height: 1.8;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 1.7;
+  }
 `
 
 export const HeroActions = styled.div`
@@ -89,6 +124,11 @@ export const HeroActions = styled.div`
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+
+  @media (max-width: 480px) {
+    margin-top: 18px;
+    gap: 10px;
+  }
 `
 
 const ActionBase = styled(Link)`
@@ -100,6 +140,13 @@ const ActionBase = styled(Link)`
   justify-content: center;
   font-weight: 700;
   transition: 0.2s ease;
+  text-align: center;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+  }
 `
 
 export const PrimaryAction = styled(ActionBase)`
@@ -125,6 +172,7 @@ export const SecondaryAction = styled(ActionBase)`
 
 export const ActivityCard = styled.div`
   width: 100%;
+  min-width: 0;
   padding: 22px;
   border-radius: 28px;
   background:
@@ -134,6 +182,11 @@ export const ActivityCard = styled.div`
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.06),
     0 18px 34px rgba(0,0,0,0.18);
+
+  @media (max-width: 480px) {
+    padding: 18px;
+    border-radius: 22px;
+  }
 `
 
 export const ActivityHeader = styled.div`
@@ -161,6 +214,11 @@ export const ActivityHeader = styled.div`
 
   @media (max-width: 480px) {
     flex-direction: column;
+    margin-bottom: 16px;
+
+    h3 {
+      font-size: 19px;
+    }
   }
 `
 
@@ -183,6 +241,10 @@ export const ActivityKpi = styled.div`
 
   @media (max-width: 480px) {
     text-align: left;
+
+    strong {
+      font-size: 28px;
+    }
   }
 `
 
@@ -193,6 +255,11 @@ export const ActivityChart = styled.div`
   justify-content: space-between;
   gap: 12px;
   padding-top: 10px;
+
+  @media (max-width: 480px) {
+    height: 180px;
+    gap: 8px;
+  }
 `
 
 export const ActivityColumn = styled.div`
@@ -204,6 +271,10 @@ export const ActivityColumn = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
+
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
 `
 
 export const ActivityBar = styled.div`
@@ -215,12 +286,20 @@ export const ActivityBar = styled.div`
   box-shadow:
     0 10px 20px rgba(34,197,94,0.14),
     inset 0 1px 0 rgba(255,255,255,0.2);
+
+  @media (max-width: 480px) {
+    max-width: 24px;
+  }
 `
 
 export const ActivityLabel = styled.span`
   color: #94a3b8;
   font-size: 12px;
   font-weight: 600;
+
+  @media (max-width: 480px) {
+    font-size: 11px;
+  }
 `
 
 export const ActivityLegend = styled.div`
@@ -247,6 +326,14 @@ export const ActivityLegend = styled.div`
     transform: translateY(-50%);
     background: linear-gradient(135deg, #6366f1, #22c55e);
   }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+
+    span {
+      font-size: 11px;
+    }
+  }
 `
 
 export const SectionCard = styled.section`
@@ -260,6 +347,12 @@ export const SectionCard = styled.section`
 
   @media (max-width: 720px) {
     padding: 20px;
+    border-radius: 24px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 20px;
   }
 `
 
@@ -270,6 +363,10 @@ export const SectionHeader = styled.div`
     color: #f8fafc;
     font-size: 24px;
     margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
   p {
@@ -277,6 +374,19 @@ export const SectionHeader = styled.div`
     font-size: 14px;
     line-height: 1.7;
     max-width: 760px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 14px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
   }
 `
 
@@ -296,6 +406,16 @@ export const FeedwallItem = styled.div`
     color: #dbe4f0;
     font-size: 15px;
     line-height: 1.8;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 18px;
+
+    p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
   }
 `
 
@@ -330,6 +450,11 @@ export const FeedwallMeta = styled.div`
     color: #94a3b8;
     font-size: 13px;
   }
+
+  @media (max-width: 480px) {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
 `
 
 export const ProgressLayout = styled.div`
@@ -341,6 +466,10 @@ export const ProgressLayout = styled.div`
   @media (max-width: 1040px) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 640px) {
+    gap: 16px;
+  }
 `
 
 export const TeamGrid = styled.div`
@@ -348,8 +477,12 @@ export const TeamGrid = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 901px) and (max-width: 1040px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `
 
@@ -361,6 +494,13 @@ export const TeamMemberCard = styled.div`
   border-radius: 22px;
   background: rgba(255,255,255,0.035);
   border: 1px solid rgba(255,255,255,0.08);
+  min-width: 0;
+
+  @media (max-width: 480px) {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 18px;
+  }
 `
 
 export const TeamMemberAvatar = styled.div`
@@ -377,6 +517,12 @@ export const TeamMemberAvatar = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 480px) {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+  }
 `
 
 export const StatusDot = styled.span`
@@ -392,9 +538,16 @@ export const StatusDot = styled.span`
     if (status === "focus") return "#38bdf8"
     return "#64748b"
   }};
+
+  @media (max-width: 480px) {
+    width: 14px;
+    height: 14px;
+  }
 `
 
 export const TeamMemberInfo = styled.div`
+  min-width: 0;
+
   strong {
     display: block;
     color: #f8fafc;
@@ -413,6 +566,17 @@ export const TeamMemberInfo = styled.div`
     color: #94a3b8;
     font-size: 13px;
     line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    strong {
+      font-size: 15px;
+    }
+
+    span,
+    p {
+      font-size: 12px;
+    }
   }
 `
 
@@ -445,6 +609,21 @@ export const DayImageCard = styled.div`
     line-height: 1.7;
     margin-bottom: 18px;
   }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 20px;
+
+    h3 {
+      font-size: 19px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+  }
 `
 
 export const DayImageFrame = styled.div`
@@ -453,7 +632,6 @@ export const DayImageFrame = styled.div`
   min-height: 320px;
   border-radius: 22px;
   overflow: hidden;
-
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
 
@@ -473,7 +651,6 @@ export const DayImageFrame = styled.div`
     content:"";
     position:absolute;
     inset:0;
-
     background:
       linear-gradient(
         to top,
@@ -481,8 +658,16 @@ export const DayImageFrame = styled.div`
         rgba(15,23,42,0.2),
         transparent
       );
-
     pointer-events:none;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 240px;
+    border-radius: 18px;
+
+    img {
+      height: 240px;
+    }
   }
 `
 
@@ -491,6 +676,11 @@ export const ProgressCard = styled.div`
   border-radius: 24px;
   background: rgba(255,255,255,0.035);
   border: 1px solid rgba(255,255,255,0.08);
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 20px;
+  }
 `
 
 export const ProgressTop = styled.div`
@@ -524,6 +714,14 @@ export const ProgressTop = styled.div`
   @media (max-width: 640px) {
     flex-direction: column;
     align-items: flex-start;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    strong {
+      font-size: 30px;
+    }
   }
 `
 
@@ -534,6 +732,11 @@ export const ProgressBarTrack = styled.div`
   overflow: hidden;
   background: rgba(255,255,255,0.08);
   margin-bottom: 20px;
+
+  @media (max-width: 480px) {
+    height: 14px;
+    margin-bottom: 16px;
+  }
 `
 
 export const ProgressBarFill = styled.div`
@@ -552,6 +755,7 @@ export const ProgressMeta = styled.div`
     border-radius: 18px;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.07);
+    min-width: 0;
   }
 
   strong {
@@ -572,6 +776,14 @@ export const ProgressMeta = styled.div`
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
+
+    strong {
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 `
 
@@ -586,6 +798,11 @@ export const ShortcutPanel = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 20px;
+  }
 `
 
 export const ShortcutLink = styled(Link)`
@@ -603,6 +820,12 @@ export const ShortcutLink = styled(Link)`
   &:hover {
     transform: translateX(4px);
     background: rgba(255,255,255,0.08);
+  }
+
+  @media (max-width: 480px) {
+    min-height: 50px;
+    border-radius: 16px;
+    font-size: 14px;
   }
 `
 
@@ -643,6 +866,15 @@ export const HealthItem = styled.div`
     font-size: 20px;
     line-height: 1.4;
     letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px;
+    border-radius: 18px;
+
+    strong {
+      font-size: 18px;
+    }
   }
 `
 

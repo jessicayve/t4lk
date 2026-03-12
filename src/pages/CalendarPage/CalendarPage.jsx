@@ -48,8 +48,8 @@ const planningVisibility = {
   title: "Planning visibility",
   description:
     "Track the month at a glance, highlight key ceremonies and keep planning references visible for the full team.",
-  image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
-
+  image:
+    "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1200&q=80"
 }
 
 const formatKey = (date) => {
@@ -123,13 +123,13 @@ const CalendarPage = () => {
       <CalendarLayout>
         <CalendarWidget>
           <CalendarHeader>
-            <div>
+            <CalendarHeaderText>
               <Badge>Planning visibility</Badge>
               <h2>
                 {monthNames[month]} {year}
               </h2>
               <p>Monthly team schedule with event highlights and date focus.</p>
-            </div>
+            </CalendarHeaderText>
 
             <CalendarNav>
               <NavButton onClick={previousMonth} aria-label="Previous month">
@@ -188,7 +188,7 @@ const CalendarPage = () => {
         <SidePanel>
           <NotesCard>
             <Badge>Calendar notes</Badge>
-            <h3 style={{ marginTop: "14px" }}>{planningVisibility.title}</h3>
+            <NotesTitle>{planningVisibility.title}</NotesTitle>
             <p>{planningVisibility.description}</p>
 
             <PreviewFrame>
@@ -242,11 +242,18 @@ export default CalendarPage
 
 const CalendarLayout = styled.div`
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
   gap: 18px;
+  width: 100%;
+  min-width: 0;
+  align-items: start;
 
   @media (max-width: 1080px) {
     grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 640px) {
+    gap: 16px;
   }
 `
 
@@ -260,10 +267,16 @@ const GlassCard = styled.section`
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.05),
     0 18px 34px rgba(0, 0, 0, 0.18);
+
+  @media (max-width: 640px) {
+    padding: 16px;
+    border-radius: 22px;
+  }
 `
 
 const CalendarWidget = styled(GlassCard)`
   min-height: 100%;
+  min-width: 0;
 `
 
 const CalendarHeader = styled.div`
@@ -273,12 +286,22 @@ const CalendarHeader = styled.div`
   gap: 16px;
   margin-bottom: 22px;
 
+  @media (max-width: 640px) {
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+`
+
+const CalendarHeaderText = styled.div`
+  min-width: 0;
+
   h2 {
     color: #f8fafc;
     font-size: 28px;
     margin-top: 14px;
     margin-bottom: 8px;
     letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
   p {
@@ -289,13 +312,26 @@ const CalendarHeader = styled.div`
   }
 
   @media (max-width: 640px) {
-    flex-direction: column;
+    h2 {
+      font-size: 24px;
+      margin-top: 12px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+    }
   }
 `
 
 const CalendarNav = styled.div`
   display: flex;
   gap: 10px;
+  flex-shrink: 0;
+
+  @media (max-width: 640px) {
+    align-self: flex-start;
+  }
 `
 
 const NavButton = styled.button`
@@ -311,6 +347,12 @@ const NavButton = styled.button`
   &:hover {
     transform: translateY(-2px);
     background: rgba(255,255,255,0.08);
+  }
+
+  @media (max-width: 480px) {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
   }
 `
 
@@ -329,12 +371,29 @@ const WeekHeader = styled.div`
     text-align: center;
     padding: 10px 0;
   }
+
+  @media (max-width: 640px) {
+    gap: 6px;
+
+    span {
+      font-size: 10px;
+      padding: 6px 0;
+    }
+  }
 `
 
 const MonthGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 10px;
+
+  @media (max-width: 640px) {
+    gap: 6px;
+  }
+
+  @media (max-width: 420px) {
+    gap: 4px;
+  }
 `
 
 const EmptyCell = styled.div`
@@ -344,7 +403,13 @@ const EmptyCell = styled.div`
   border: 1px dashed rgba(255,255,255,0.04);
 
   @media (max-width: 640px) {
-    min-height: 74px;
+    min-height: 58px;
+    border-radius: 14px;
+  }
+
+  @media (max-width: 420px) {
+    min-height: 52px;
+    border-radius: 12px;
   }
 `
 
@@ -353,6 +418,7 @@ const DayCell = styled.button`
   padding: 12px 10px;
   border-radius: 18px;
   text-align: left;
+  min-width: 0;
   border: 1px solid
     ${({ $isSelected, $isToday }) =>
       $isSelected
@@ -403,8 +469,15 @@ const DayCell = styled.button`
   }
 
   @media (max-width: 640px) {
-    min-height: 74px;
-    padding: 10px 8px;
+    min-height: 58px;
+    padding: 8px 6px;
+    border-radius: 14px;
+  }
+
+  @media (max-width: 420px) {
+    min-height: 52px;
+    padding: 6px 4px;
+    border-radius: 12px;
   }
 `
 
@@ -413,6 +486,15 @@ const DayNumber = styled.span`
   color: #f8fafc;
   font-size: 16px;
   font-weight: 700;
+  line-height: 1;
+
+  @media (max-width: 640px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 12px;
+  }
 `
 
 const DayMarkers = styled.div`
@@ -420,6 +502,15 @@ const DayMarkers = styled.div`
   gap: 6px;
   margin-top: 12px;
   flex-wrap: wrap;
+
+  @media (max-width: 640px) {
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 420px) {
+    margin-top: 6px;
+  }
 `
 
 const Marker = styled.span`
@@ -433,26 +524,44 @@ const Marker = styled.span`
     return "#f97316"
   }};
   box-shadow: 0 0 0 4px rgba(255,255,255,0.03);
+
+  @media (max-width: 640px) {
+    width: 6px;
+    height: 6px;
+  }
 `
 
 const SidePanel = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
+  min-width: 0;
 `
 
 const NotesCard = styled(GlassCard)`
-  h3 {
-    color: #f8fafc;
-    font-size: 22px;
-    margin-bottom: 10px;
-    letter-spacing: -0.03em;
-  }
-
   p {
     color: #94a3b8;
     font-size: 14px;
     line-height: 1.75;
+  }
+
+  @media (max-width: 480px) {
+    p {
+      font-size: 13px;
+      line-height: 1.65;
+    }
+  }
+`
+
+const NotesTitle = styled.h3`
+  color: #f8fafc;
+  font-size: 22px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+
+  @media (max-width: 480px) {
+    font-size: 19px;
   }
 `
 
@@ -475,6 +584,7 @@ const PreviewFrame = styled.div`
     height: 220px;
     object-fit: cover;
     display: block;
+    filter: brightness(0.9) contrast(1.03);
   }
 
   span {
@@ -483,6 +593,20 @@ const PreviewFrame = styled.div`
     text-align: center;
     line-height: 1.6;
     padding: 24px;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 180px;
+    border-radius: 18px;
+
+    img {
+      height: 180px;
+    }
+
+    span {
+      font-size: 13px;
+      padding: 18px;
+    }
   }
 `
 
@@ -494,6 +618,12 @@ const SelectedDateTitle = styled.h3`
   margin-top: 14px;
   margin-bottom: 16px;
   letter-spacing: -0.03em;
+  line-height: 1.25;
+
+  @media (max-width: 480px) {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
 `
 
 const EventList = styled.div`
@@ -516,11 +646,25 @@ const EventItem = styled.div`
     color: #f8fafc;
     margin-bottom: 6px;
     font-size: 14px;
+    line-height: 1.5;
   }
 
   span {
     color: #94a3b8;
     font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px;
+    border-radius: 16px;
+
+    strong {
+      font-size: 13px;
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 `
 
@@ -542,4 +686,9 @@ const EmptyEvents = styled.p`
   color: #94a3b8;
   font-size: 14px;
   line-height: 1.75;
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+    line-height: 1.65;
+  }
 `

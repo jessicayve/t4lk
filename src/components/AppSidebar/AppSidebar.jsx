@@ -22,7 +22,7 @@ import {
 } from "./AppSidebarStyle"
 
 const navItems = [
-  { to: "/", label: "Home", icon: Home },
+  { to: "/", label: "Home", icon: Home, end: true },
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/chat", label: "Team Chat", icon: MessageSquareText },
   { to: "/tasks", label: "Tasks", icon: KanbanSquare },
@@ -51,7 +51,7 @@ export const AppSidebar = () => {
 
           return (
             <NavItem key={item.to}>
-              <NavLink to={item.to}>
+              <NavLink to={item.to} end={item.end}>
                 <NavIcon>
                   <Icon size={18} strokeWidth={2.1} />
                 </NavIcon>

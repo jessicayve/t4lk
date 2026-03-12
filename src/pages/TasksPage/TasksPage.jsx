@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import {
   PageShell,
   HeroCard,
@@ -83,28 +84,35 @@ const TasksPage = () => {
         <p>Track tasks across the full development flow.</p>
       </SectionTitle>
 
-      <BoardGrid>
-        {columns.map((column) => (
-          <BoardColumn key={column.title} variant={column.variant}>
-            <h3>{column.title}</h3>
+      <BoardSection>
+        <BoardGrid>
+          {columns.map((column) => (
+            <BoardColumn key={column.title} variant={column.variant}>
+              <h3>{column.title}</h3>
 
-            {column.tasks.map((task) => (
-              <BoardCard key={task.title}>
-                <strong>{task.title}</strong>
-                <p>{task.description}</p>
+              {column.tasks.map((task) => (
+                <BoardCard key={task.title}>
+                  <strong>{task.title}</strong>
+                  <p>{task.description}</p>
 
-                <MetaRow>
-                  {task.meta.map((item) => (
-                    <Badge key={item}>{item}</Badge>
-                  ))}
-                </MetaRow>
-              </BoardCard>
-            ))}
-          </BoardColumn>
-        ))}
-      </BoardGrid>
+                  <MetaRow>
+                    {task.meta.map((item) => (
+                      <Badge key={item}>{item}</Badge>
+                    ))}
+                  </MetaRow>
+                </BoardCard>
+              ))}
+            </BoardColumn>
+          ))}
+        </BoardGrid>
+      </BoardSection>
     </PageShell>
   )
 }
 
 export default TasksPage
+
+const BoardSection = styled.div`
+  width: 100%;
+  min-width: 0;
+`

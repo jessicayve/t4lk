@@ -1,39 +1,38 @@
 import styled from "styled-components"
 
 export const ContactPanelContainer = styled.aside`
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  padding:24px 18px;
+  padding: 24px 18px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid rgba(255,255,255,0.08);
 
-  background:rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
 
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
+  box-shadow: -8px 0 30px rgba(0,0,0,0.18);
 
-  border-left:1px solid rgba(255,255,255,0.08);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-
-  text-align:center;
-
-  gap:14px;
-  box-shadow:-8px 0 30px rgba(0,0,0,0.18);
-
-  h3{
-    font-size:20px;
-    color:#f8fafc;
+  h3 {
+    font-size: 20px;
+    color: #f8fafc;
   }
 
-  p{
-    font-size:14px;
-    color:#94a3b8;
+  p {
+    font-size: 14px;
+    color: #94a3b8;
   }
 
-  @media(max-width:1100px){
-    display:none;
+  @media (max-width: 1100px) {
+    display: none;
   }
-
 `
 
 export const Avatar = styled.img`

@@ -4,6 +4,8 @@ export const PageShell = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  min-width: 0;
 `
 
 export const HeroCard = styled.section`
@@ -29,10 +31,17 @@ export const HeroCard = styled.section`
   }
 
   @media (max-width: 640px) {
-    padding: 22px;
+    padding: 20px;
+    border-radius: 22px;
 
     h1 {
-      font-size: 26px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
     }
   }
 `
@@ -60,6 +69,11 @@ export const Grid = styled.div`
   grid-template-columns: ${({ columns }) =>
     columns || "repeat(auto-fit, minmax(240px, 1fr))"};
   gap: 18px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 `
 
 export const Card = styled.div`
@@ -68,17 +82,32 @@ export const Card = styled.div`
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  min-width: 0;
 
   h3 {
     color: #f8fafc;
     font-size: 18px;
     margin-bottom: 8px;
+    line-height: 1.35;
   }
 
   p {
     color: #94a3b8;
     line-height: 1.6;
     font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 16px;
+    border-radius: 20px;
+
+    h3 {
+      font-size: 17px;
+    }
+
+    p {
+      font-size: 13px;
+    }
   }
 `
 
@@ -87,6 +116,11 @@ export const StatValue = styled.strong`
   font-size: 34px;
   color: #ffffff;
   margin-bottom: 8px;
+  line-height: 1;
+
+  @media (max-width: 640px) {
+    font-size: 28px;
+  }
 `
 
 export const List = styled.div`
@@ -100,12 +134,14 @@ export const ListItem = styled.div`
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  min-width: 0;
 
   strong {
     display: block;
     color: #f8fafc;
     margin-bottom: 6px;
     font-size: 14px;
+    line-height: 1.5;
   }
 
   span,
@@ -113,6 +149,20 @@ export const ListItem = styled.div`
     color: #94a3b8;
     font-size: 13px;
     line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 14px;
+    border-radius: 16px;
+
+    strong {
+      font-size: 13px;
+    }
+
+    span,
+    p {
+      font-size: 12px;
+    }
   }
 `
 
@@ -131,20 +181,33 @@ export const ActionGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 `
 
 export const ActionButton = styled.button`
   min-height: 58px;
+  padding: 0 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.06);
   color: #f8fafc;
   font-weight: 700;
   transition: 0.2s ease;
+  text-align: center;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    min-height: 50px;
+    border-radius: 16px;
+    font-size: 14px;
   }
 `
 
@@ -152,12 +215,14 @@ export const BoardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 18px;
+  width: 100%;
+  min-width: 0;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, minmax(220px, 1fr));
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 760px) {
     grid-template-columns: 1fr;
   }
 `
@@ -166,6 +231,7 @@ export const BoardColumn = styled.div`
   padding: 18px;
   border-radius: 26px;
   min-height: 380px;
+  min-width: 0;
   backdrop-filter: blur(26px);
   -webkit-backdrop-filter: blur(26px);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -200,6 +266,7 @@ export const BoardColumn = styled.div`
     display: inline-block;
     padding-bottom: 6px;
     position: relative;
+    line-height: 1.3;
   }
 
   h3::after {
@@ -211,6 +278,12 @@ export const BoardColumn = styled.div`
     height: 2px;
     border-radius: 999px;
     background: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 640px) {
+    padding: 14px;
+    border-radius: 20px;
+    min-height: unset;
   }
 `
 
@@ -249,8 +322,8 @@ export const BoardCard = styled.div`
   }
 `
 export const MetaRow = styled.div`
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
 `

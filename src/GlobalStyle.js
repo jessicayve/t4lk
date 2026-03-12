@@ -115,33 +115,33 @@ export const GlobalStyle = createGlobalStyle`
 `
 
 export const AppContainer = styled.div`
-  width:100%;
-  height:100vh;
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:320px minmax(0,1fr) 280px;
-  background:rgba(15,23,42,0.85);
-  overflow-y:auto;
-  overflow-x:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.35);
-  border:1px solid rgba(255,255,255,0.06);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) 280px;
+  background: rgba(15,23,42,0.85);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.06);
 
-  @media(max-width:1100px){
-    grid-template-columns:280px minmax(0,1fr);
+  @media (max-width: 1100px) {
+    grid-template-columns: 280px minmax(0,1fr);
   }
 
-  @media(max-width:860px){
-    grid-template-columns:1fr;
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
   }
 `
 
 export const ChatSection = styled.section`
-  min-width:0;
-  min-height:0;
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background:
     radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 30%);
 `
+

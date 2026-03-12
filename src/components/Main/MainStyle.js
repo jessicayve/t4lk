@@ -18,7 +18,6 @@ export const MainContainer = styled.main`
     padding: 18px 16px;
   }
 `
-
 export const DateDivider = styled.div`
   align-self: center;
   top: 0;

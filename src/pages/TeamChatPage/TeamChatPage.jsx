@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import styled from "styled-components"
 import { AppContainer, ChatSection } from "../../GlobalStyle"
 import { Main } from "../../components/Main/Main"
 import { Footer } from "../../components/Footer/Footer"
@@ -13,6 +14,7 @@ const STORAGE_KEY = "t4lk-chats"
 export const TeamChatPage = () => {
   const [activeContact, setActiveContact] = useState(contacts[0])
   const [search, setSearch] = useState("")
+  const [isMobileContactsOpen, setIsMobileContactsOpen] = useState(false)
 
   const [chats, setChats] = useState(() => {
     const savedChats = localStorage.getItem(STORAGE_KEY)
@@ -22,6 +24,10 @@ export const TeamChatPage = () => {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(chats))
   }, [chats])
+
+  useEffect(() => {
+    setIsMobileContactsOpen(false)
+  }, [activeContact])
 
   const filteredContacts = useMemo(() => {
     return contacts.filter((contact) =>
@@ -77,25 +83,88 @@ export const TeamChatPage = () => {
   }
 
   return (
-    <AppContainer>
-      <Sidebar
-        contacts={filteredContacts}
-        activeContact={activeContact}
-        search={search}
-        setSearch={setSearch}
-        onSelectContact={setActiveContact}
-        getLastMessage={getLastMessage}
+    <ChatPageShell>
+      <MobileSidebarOverlay
+        $isOpen={isMobileContactsOpen}
+        onClick={() => setIsMobileContactsOpen(false)}
+        aria-label="Close contacts"
       />
 
-      <ChatSection>
-        <ChatHeader activeContact={activeContact} />
+      <MobileSidebarWrapper $isOpen={isMobileContactsOpen}>
+        <Sidebar
+          contacts={filteredContacts}
+          activeContact={activeContact}
+          search={search}
+          setSearch={setSearch}
+          onSelectContact={setActiveContact}
+          getLastMessage={getLastMessage}
+          forceMobileVisible
+        />
+      </MobileSidebarWrapper>
 
-        <Main messages={activeMessages} deleteMessage={deleteMessage} />
+      <AppContainer>
+        <Sidebar
+          contacts={filteredContacts}
+          activeContact={activeContact}
+          search={search}
+          setSearch={setSearch}
+          onSelectContact={setActiveContact}
+          getLastMessage={getLastMessage}
+        />
 
-        <Footer sendText={createMessage} />
-      </ChatSection>
+        <ChatSection>
+          <ChatHeader
+            activeContact={activeContact}
+            onOpenContacts={() => setIsMobileContactsOpen(true)}
+          />
 
-      <ContactPanel activeContact={activeContact} />
-    </AppContainer>
+          <Main messages={activeMessages} deleteMessage={deleteMessage} />
+
+          <Footer sendText={createMessage} />
+        </ChatSection>
+
+        <ContactPanel activeContact={activeContact} />
+      </AppContainer>
+    </ChatPageShell>
   )
 }
+
+const ChatPageShell = styled.div`
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+`
+
+const MobileSidebarOverlay = styled.button`
+  display: none;
+
+  @media (max-width: 860px) {
+    display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    border: none;
+    background: rgba(2, 6, 23, 0.58);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+`
+
+const MobileSidebarWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 860px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1210;
+    width: min(88vw, 340px);
+    height: 100dvh;
+    transform: ${({ $isOpen }) =>
+      $isOpen ? "translateX(0)" : "translateX(-105%)"};
+    transition: transform 0.28s ease;
+    box-shadow: 16px 0 40px rgba(0, 0, 0, 0.35);
+  }
+`

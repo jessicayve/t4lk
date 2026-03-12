@@ -1,7 +1,18 @@
 import React, { useState } from "react"
-import { FooterContainer, SendButton } from "./FooterStyle"
-import emoji from "../../assets/emoji.png"
-import paperclip from "../../assets/paperclip.png"
+import {
+  FooterContainer,
+  InputArea,
+  MessageInput,
+  IconButton,
+  SendButton
+} from "./FooterStyle"
+
+import {
+  Paperclip,
+  Image,
+  Video,
+  SendHorizontal
+} from "lucide-react"
 
 export const Footer = ({ sendText }) => {
   const [text, setText] = useState("")
@@ -26,25 +37,29 @@ export const Footer = ({ sendText }) => {
 
   return (
     <FooterContainer>
-      <div className="input-area">
-        <button type="button" className="emoji">
-          <img src={emoji} alt="Emoji icon" />
-        </button>
+      <InputArea>
+        <IconButton type="button" aria-label="Attach file">
+          <Paperclip size={18} />
+        </IconButton>
 
-        <input
+        <MessageInput
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Write a message..."
           onKeyDown={handleKeyDown}
         />
 
-        <button type="button" className="paperclip">
-          <img src={paperclip} alt="Attachment icon" />
-        </button>
-      </div>
+        <IconButton type="button" aria-label="Send image">
+          <Image size={18} />
+        </IconButton>
+
+        <IconButton type="button" aria-label="Send video">
+          <Video size={18} />
+        </IconButton>
+      </InputArea>
 
       <SendButton type="button" onClick={handleSend}>
-        Send
+        <SendHorizontal size={18} />
       </SendButton>
     </FooterContainer>
   )

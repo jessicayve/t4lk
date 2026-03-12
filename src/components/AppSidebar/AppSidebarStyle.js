@@ -1,11 +1,10 @@
 import styled from "styled-components"
 
 export const SidebarContainer = styled.aside`
-  width: 280px;
-  min-width: 280px;
-  height: 100vh;
-  min-height: 100vh;
-  padding: 24px 18px 40px 18px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 24px 18px 28px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -19,12 +18,11 @@ export const SidebarContainer = styled.aside`
   box-shadow: 10px 0 30px rgba(0, 0, 0, 0.18);
 
   @media (max-width: 980px) {
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    min-height: auto;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: none;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding-top: 22px;
   }
 `
 
@@ -58,6 +56,7 @@ export const BrandBadge = styled.div`
   color: white;
   background: linear-gradient(135deg, #6366f1, #22c55e);
   box-shadow: 0 12px 24px rgba(34, 197, 94, 0.18);
+  flex-shrink: 0;
 `
 
 export const NavSection = styled.nav`

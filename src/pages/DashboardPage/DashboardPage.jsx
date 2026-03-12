@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import {
   PageShell,
   HeroCard,
@@ -50,7 +51,7 @@ const DashboardPage = () => {
         </Card>
       </Grid>
 
-      <Grid columns="1.3fr 1fr">
+      <DashboardSplitGrid>
         <Card>
           <SectionTitle>
             <h2>Recent activity</h2>
@@ -88,19 +89,24 @@ const DashboardPage = () => {
             <ActionButton>Write Standup</ActionButton>
           </ActionGrid>
         </Card>
-      </Grid>
+      </DashboardSplitGrid>
 
       <Grid>
         <Card>
           <Badge>Today</Badge>
-          <h3 style={{ marginTop: "14px" }}>Priority focus</h3>
-          <p>Finish task board interactions, review pending UI issues and validate staging release.</p>
+          <CardHeading>Priority focus</CardHeading>
+          <p>
+            Finish task board interactions, review pending UI issues and validate
+            staging release.
+          </p>
         </Card>
 
         <Card>
           <Badge>Release</Badge>
-          <h3 style={{ marginTop: "14px" }}>Latest milestone</h3>
-          <p>T4LK workspace structure is now ready for feature-by-feature expansion.</p>
+          <CardHeading>Latest milestone</CardHeading>
+          <p>
+            T4LK workspace structure is now ready for feature-by-feature expansion.
+          </p>
         </Card>
       </Grid>
     </PageShell>
@@ -108,3 +114,21 @@ const DashboardPage = () => {
 }
 
 export default DashboardPage
+
+const DashboardSplitGrid = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 1fr);
+  gap: 18px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 640px) {
+    gap: 14px;
+  }
+`
+
+const CardHeading = styled.h3`
+  margin-top: 14px;
+`

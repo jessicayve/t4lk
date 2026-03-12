@@ -1,16 +1,16 @@
 import React from "react"
 import {
   SidebarContainer,
+  SidebarTop,
   Brand,
   ProfileCard,
   SearchInput,
+  SidebarTitle,
   ContactList,
   ContactCard,
   ContactMeta,
-  StatusDot,
-  SidebarTop,
-  SidebarTitle,
-  LastMessage
+  LastMessage,
+  StatusDot
 } from "./SidebarStyle"
 
 export const Sidebar = ({
@@ -19,10 +19,11 @@ export const Sidebar = ({
   search,
   setSearch,
   onSelectContact,
-  getLastMessage
+  getLastMessage,
+  forceMobileVisible = false
 }) => {
   return (
-    <SidebarContainer>
+    <SidebarContainer $forceMobileVisible={forceMobileVisible}>
       <SidebarTop>
         <Brand>
           <span>T4LK</span>
