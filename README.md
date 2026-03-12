@@ -1,70 +1,234 @@
-# Getting Started with Create React App
+T4LK — Dev Collaboration Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+T4LK is a modern developer workspace designed to help small engineering teams collaborate, stay aligned, and maintain visibility across communication, planning and delivery.
 
-## Available Scripts
+Originally built as a chat application, the project evolved into a broader developer collaboration platform, combining messaging, sprint planning, task tracking and team awareness in a unified interface.
 
-In the project directory, you can run:
+The goal of T4LK is to provide a lightweight environment where teams can coordinate work, track progress and maintain communication without relying on multiple fragmented tools.
 
-### `npm start`
+Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+T4LK simulates the core environment of a modern engineering workspace.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The interface is built around a dashboard-style layout with a fixed sidebar navigation and multiple dedicated sections for team collaboration and project visibility.
 
-### `npm test`
+The application currently includes modules such as:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Home
 
-### `npm run build`
+Dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Team Chat
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tasks Board (Kanban)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pull Requests
 
-### `npm run eject`
+Dev Notes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Standup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Deploy Status
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Calendar
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Each section focuses on a different aspect of the development workflow, from communication to sprint tracking.
 
-## Learn More
+Key Features
+Team Chat
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The original core of the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Features include:
 
-### Code Splitting
+contact sidebar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+central chat interface
 
-### Analyzing the Bundle Size
+message sending
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+message deletion with double click
 
-### Making a Progressive Web App
+avatar-based user separation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+internal scroll management
 
-### Advanced Configuration
+localStorage persistence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+modern chat layout
 
-### Deployment
+The chat module is fully functional and designed to resemble real developer communication tools.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Dashboard
 
-### `npm run build` fails to minify
+The dashboard provides an overview of team activity and project health.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It includes components such as:
+
+sprint progress
+
+project health indicators
+
+team presence
+
+recent activity
+
+quick insights for ongoing development work
+
+The goal is to create a high-level view of team performance and collaboration.
+
+Tasks Board
+
+A Kanban-style task board used to visualize sprint work.
+
+Typical columns include:
+
+Backlog
+
+In Progress
+
+Review
+
+Done
+
+The board helps simulate sprint organization and team task flow.
+
+Calendar
+
+The Calendar page provides planning visibility for the team.
+
+Features include:
+
+monthly calendar view
+
+current day highlight
+
+date selection
+
+event indicators
+
+selected day event panel
+
+planning reference card
+
+This section is designed to represent sprint ceremonies, deadlines and team planning.
+
+Home Workspace
+
+The homepage acts as a team landing page inside the workspace.
+
+Components include:
+
+activity overview
+
+feed wall for team messages
+
+team presence indicators
+
+image of the day
+
+sprint progress
+
+project health summary
+
+This area simulates the feeling of entering a real collaborative workspace.
+
+UI and Design
+
+The interface focuses on a modern developer-friendly design.
+
+Key design principles include:
+
+dark UI
+
+glassmorphism elements
+
+soft gradients
+
+rounded components
+
+dashboard layout
+
+modular cards
+
+clean visual hierarchy
+
+The goal is to create an interface similar to modern SaaS developer tools.
+
+Tech Stack
+
+The project is built using:
+
+React
+
+React Router
+
+styled-components
+
+The architecture follows a page-based structure, with reusable UI components used across sections.
+
+Project Structure
+
+The application is organized around a modular layout:
+
+src
+ ├── components
+ │
+ ├── pages
+ │   ├── Home
+ │   ├── Dashboard
+ │   ├── TeamChat
+ │   ├── TasksBoard
+ │   ├── PullRequests
+ │   ├── DevNotes
+ │   ├── Standup
+ │   ├── DeployStatus
+ │   └── Calendar
+ │
+ ├── assets
+ ├── styles
+ └── routes
+
+This structure helps maintain separation between UI components and page logic.
+
+Purpose of the Project
+
+T4LK is a portfolio project focused on:
+
+interface design
+
+front-end architecture
+
+dashboard systems
+
+developer productivity tools
+
+UX for collaborative environments
+
+The platform explores how a small team could organize communication, planning and engineering workflow within a single interface.
+
+Status
+
+The project is currently under active development.
+
+Recent improvements include:
+
+improved sidebar navigation
+
+Lucide icon integration
+
+homepage layout refinements
+
+calendar planning module
+
+UI polish and layout adjustments
+
+Future iterations may include deeper integrations between modules and enhanced collaboration features.
+
+License
+
+© 2026 Jessica Yve
+All rights reserved.
+
+This project is provided for portfolio and demonstration purposes.
+The code may not be copied, redistributed, or reused without explicit permission from the author.
