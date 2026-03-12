@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import {
   MainContainer,
   ChatBalloon,
@@ -10,6 +10,15 @@ import doubletick from "../../assets/doubletick.png"
 import doubletickwhite from "../../assets/doubletickwhite.png"
 
 export const Main = ({ messages, deleteMessage }) => {
+  const bottomRef = useRef(null)
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "end"
+    })
+  }, [messages])
+
   return (
     <MainContainer>
       <DateDivider>Today</DateDivider>
@@ -44,6 +53,8 @@ export const Main = ({ messages, deleteMessage }) => {
           </ChatBalloon>
         </MessageWrapper>
       ))}
+
+      <div ref={bottomRef} />
     </MainContainer>
   )
 }

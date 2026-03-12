@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const FooterContainer = styled.footer`
+  flex-shrink: 0;
   padding: 18px 24px 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.02);
@@ -54,7 +55,7 @@ export const FooterContainer = styled.footer`
 
 export const SendButton = styled.button`
   min-width: 110px;
-  height: 58px;
+  height: 50px;
   border-radius: 18px;
   background: linear-gradient(135deg, #6366f1, #22c55e);
   color: white;

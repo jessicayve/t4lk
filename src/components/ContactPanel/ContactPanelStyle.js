@@ -18,7 +18,6 @@ export const ContactPanelContainer = styled.aside`
   text-align:center;
 
   gap:14px;
-
   box-shadow:-8px 0 30px rgba(0,0,0,0.18);
 
   h3{

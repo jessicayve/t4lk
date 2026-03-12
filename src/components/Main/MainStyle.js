@@ -2,11 +2,15 @@ import styled from "styled-components"
 
 export const MainContainer = styled.main`
   flex: 1;
+  min-height: 0;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
   background:
     radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 30%);
 
@@ -17,7 +21,10 @@ export const MainContainer = styled.main`
 
 export const DateDivider = styled.div`
   align-self: center;
+  top: 0;
+  z-index: 2;
   background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
   color: #cbd5e1;
   font-size: 12px;
   font-weight: 700;
@@ -33,7 +40,7 @@ export const MessageWrapper = styled.div`
 
 export const ChatBalloon = styled.div`
   min-width: 110px;
-  max-width: 420px;
+  max-width: 400px;
   border-radius: 20px;
   padding: 14px 14px 12px;
   color: ${(props) => (props.sender === "Me" ? "#f8fafc" : "#e5e7eb")};
